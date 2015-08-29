@@ -1,0 +1,1 @@
+This SH scripts need place in /bin/ folder!

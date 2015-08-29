@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# OFF wi-fi
+
+wifi down
+uci set wireless.@wifi-iface[0].disabled=1
+uci set wireless.@wifi-iface[1].disabled=1
+wifi

@@ -1,0 +1,18 @@
+
+00738D	Tinno Mobile Technology Corp
+50E549	GIGA-BYTE TECHNOLOGY CO.,LTD.
+745C9F	TCT mobile ltd.
+88308A	Murata Manufactuaring Co.,Ltd.
+8CFABA	Apple
+902B34	GIGA-BYTE TECHNOLOGY CO.,LTD.
+90C115	Sony Ericsson Mobile Communications AB
+9CA9E4	zte corporation
+A88808	Apple
+B0E03C	TCT mobile ltd
+C88550	Apple
+D890E8	Samsung Electronics Co.,Ltd
+E063E5	Sony Mobile Communications AB
+E498D6	Apple, Inc
+E8150E	Nokia Corporation
+EC43F6	ZyXEL Communications Corporation
+F0F61C	Apple

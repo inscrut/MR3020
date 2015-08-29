@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Fix route table for AP, must be with /bin/wifi-ap
+
+route del default gw 192.168.97.1 wlan0
+route add default gw $(echo $(route | grep eth0 | cut -d' ' -f 1 | tail -n1 | cut -d'.' -f1-3).1) eth0

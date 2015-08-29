@@ -1,0 +1,5 @@
+
+config rule 'ruleup'
+	option btn_1 '1'
+	option btn_0 '0'
+	option mode 'WISP'

@@ -1,0 +1,77 @@
+
+config system
+	option hostname 'PCT'
+	option zonename 'Asia/Novosibirsk'
+	option timezone 'NOVT-6'
+	option conloglevel '8'
+	option cronloglevel '8'
+    option log_file '/var/log/messages'
+	option log_size '2048'
+	option log_type 'file'
+
+config timeserver 'ntp'
+	list server '0.openwrt.pool.ntp.org'
+	list server '1.openwrt.pool.ntp.org'
+	list server '2.openwrt.pool.ntp.org'
+	list server '3.openwrt.pool.ntp.org'
+	option enabled '1'
+
+config led 'led_usb'
+	option name 'USB'
+	option sysfs 'tp-link:green:3g'
+	option trigger 'usbdev'
+	option dev '1-1'
+	option interval '50'
+	option default '0'
+
+config led 'led_wlan'
+	option name 'WLAN'
+	option sysfs 'tp-link:green:wlan'
+	option trigger 'phy0tpt'
+	option default '0'
+
+config led 'led_lan'
+	option name 'LAN'
+	option sysfs 'tp-link:green:lan'
+	option trigger 'netdev'
+	option dev 'eth0'
+	option mode 'link tx rx'
+	option default '0'
+
+config button
+	option button 'wps'
+	option action 'pressed'
+	option handler 'blink 1'
+
+config button
+    option button 'wps'
+    option action 'released'
+    option handler 'blink 0'
+
+config button
+    option button 'wps'
+    option action 'released'
+    option handler '/bin/swwifi'
+    option min 1
+    option max 2
+
+config button
+	option button 'wps'
+	option action 'released'
+	option handler '/bin/swlan'
+	option min 3
+	option max 4
+
+config button
+	option button 'wps'
+	option action 'released'
+	option handler '/usr/bin/wifioff'
+	option min 5
+	option max 6
+
+config button
+    option button 'wps'
+    option action 'released'
+    option handler 'reboot'
+    option min 10
+    option max 15

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Change network mode to dhcp
+
+uci set network.lan.proto=dhcp
+uci set network.lan.ifname=eth0
+uci delete network.lan.ipaddr
+uci delete network.lan.gateway
+uci delete network.lan.netmask
+
+uci commit network
+
+/etc/init.d/network restart
+
+blink -t 1

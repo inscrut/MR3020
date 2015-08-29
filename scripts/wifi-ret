@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Retranslator wireless mode
+
+wifi down
+uci set wireless.@wifi-iface[0].disabled=0
+uci set wireless.@wifi-iface[1].disabled=0
+wifi

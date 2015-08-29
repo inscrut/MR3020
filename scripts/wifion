@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# ON wi-fi
+
+wifi up

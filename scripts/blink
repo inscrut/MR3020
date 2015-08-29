@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Blink WPS-led 1 sec
+
+if [ $1 == 0 ]
+then
+	if ps | grep blink | grep screen &>/dev/null
+	then
+	echo OFF
+	kill $(screen -ls | grep blink | awk {'print($1)'} | awk -F. {'print($1)'})
+	echo 0 > /sys/devices/platform/leds-gpio/leds/tp-link\:green\:wps/brightness
+	else
+	echo ERR:NOT_FOUND_SCREEN
+	echo 0 > /sys/devices/platform/leds-gpio/leds/tp-link\:green\:wps/brightness
+	fi
+fi
+
+
+if [ $1 == 1 ]
+then
+	if ps | grep blink | grep screen &>/dev/null
+	then
+	echo ERR:SCREEN_IS_RUN
+	else
+	echo ON
+	/root/blink/run.sh
+	fi
+fi
+
+if [[ $1 == '-t' ]]
+then
+D=$(date -Iseconds | tr : - | tr + - | tr T - | awk -F- {'print($4$5$6)'})
+T=$(echo $2+$2-1 | bc)
+blink 1
+screen -AdmS SleepBlink_$D /root/blink/time.sh $T
+fi

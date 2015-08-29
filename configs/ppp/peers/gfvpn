@@ -1,0 +1,6 @@
+pty "pptp 1.1.1.1 --nolaunchpppd"
+name mob
+remotename gfvpn
+defaultroute
+file /etc/ppp/options.pptp
+ipparam gfvpn

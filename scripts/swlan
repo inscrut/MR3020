@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Switcher network mode
+
+STATEFILE="/tmp/swlan.state"
+ 
+if [ $# -eq 1 ]; then
+  case $1 in
+    "up"|"on")
+      STATE=off
+      ;;
+    "down"|"off")
+      STATE=on
+      ;;
+  esac
+else
+  if [ ! -e ${STATEFILE} ]; then
+    STATE=on
+  else
+    . ${STATEFILE}
+  fi
+fi
+if [ -z ${STATE} ]; then
+  STATE=on
+fi
+ 
+if [ ${STATE} == "on" ]; then
+  /bin/statlan
+  STATE=off
+else
+  /bin/dhcplan
+  STATE=on
+fi
+ 
+echo "STATE=${STATE}" > ${STATEFILE}

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Switcher wireless mode
+
+ST=$(uci get wifi.ruleup.mode)
+
+if [[ $ST == '3G' ]]
+then
+/bin/wifi-ret
+blink -t 1
+fi
+if [[ $ST == 'WISP' ]]
+then
+/bin/wifi-client
+blink -t 2
+fi
+if [[ $ST == 'AP' ]]
+then
+/bin/wifi-ap
+blink -t 3
+fi

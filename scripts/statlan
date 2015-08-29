@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Change network mode to static
+
+uci set network.lan.proto=static
+uci set network.lan.ifname=eth0
+uci set network.lan.ipaddr=192.168.3.1
+uci set network.lan.gateway=192.168.3.1
+uci set network.lan.netmask=255.255.255.0
+
+uci commit network
+
+/etc/init.d/network restart
+
+blink -t 1
